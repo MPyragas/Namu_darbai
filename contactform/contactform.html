@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Kontaktinė forma</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .box {
+            display: flex;
+            width: 1069px;
+            height: 543px;
+            margin: 2em auto;
+            box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.027);
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            background-color: #5cce93;
+            color: white;
+            width: 33%;
+            height: 100%;
+            padding: 3em;
+        }
+
+        .forms {
+            display: flex;
+            flex-direction: column;
+            padding: 3em;
+            width: 66%;
+            height: 100%;
+            background-color: white;
+        }
+
+        .list {
+            list-style: none;
+        }
+
+        .fa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.5em;
+            width: 2.5em;
+            border: 3px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+            font-size: 1.3em;
+        }
+
+        .contactinfo {
+            flex: 1;
+            padding-left: 0.8em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin: 1em 0;
+        }
+
+        .nameaddress {
+            display: inline-flex;
+            width: 100%;
+            gap: 2em;
+        }
+
+        .nameaddress div {
+            flex: 1;
+        }
+
+        li {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.2em;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            padding: 0.8em 0;
+        }
+
+        input {
+            display: block;
+            font-size: 0.9rem;
+            padding: 0.5em 0;
+            width: 100%;
+            border: none;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.027);
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 0.9rem;
+            border: none;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.027);
+        }
+
+        button {
+            margin-top: 1em;
+            padding: 1em 1.3em;
+            background-color: #5cce93;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Kontaktinė forma</h1>
+    <div class="box">
+        <div class="contacts">
+            <h2>Let's get in touch</h2>
+            <p style="margin: 1.5em 0;">We're open for any suggestion or just to have a chat</p>
+            <ul class="list">
+                <li><i class="fa fa-map-marker"></i>
+                    <p class="contactinfo">Address: 198 West 21th Street, Suite 721 New Yourk NY 10016</p>
+                </li>
+                <li><i class="fa fa-phone"></i>
+                    <p class="contactinfo">Phone: + 1235 2355 98</p>
+                </li>
+                <li><i class="fa fa-paper-plane"></i>
+                    <p class="contactinfo">Email: info@yoursite.com</p>
+                </li>
+                <li><i class="fa fa-globe"></i>
+                    <p class="contactinfo">Website yoursite.com</p>
+                </li>
+            </ul>
+        </div>
+        <div class="forms">
+            <h2>Get in touch</h2>
+            <form>
+                <div class="nameaddress">
+                    <div>
+                        <label>FULL NAME</label>
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div>
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" placeholder="Email">
+                    </div>
+                </div>
+                <div>
+                    <label>SUBJECT</label>
+                    <input type="text" placeholder="Subject">
+                </div>
+                <div>
+                    <label>MESSAGE</label>
+                    <textarea rows="5" placeholder="Message"></textarea>
+                </div>
+                <div>
+                    <button>Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
