@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Pasinaudokite atsitiktinio skaičiaus generavimo funkcija. 
+        //Sukurkite du kintamuosius ir naudodamiesi funkcija jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. 
+        //Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio.
+
+        console.log(`Pirma užduotis`);
+        let rand1 = rand(0, 4);
+        console.log(rand1);
+        let rand2 = rand(0, 4);
+        console.log(rand2);
+        let division;
+        if (rand1 > rand2) {
+            division = (rand1 / rand2);
+            console.log(`Padalinus didesnį skaičių iš mažesnio gauname:`, division.toFixed(2));
+        } else {
+            division = (rand2 / rand1);
+            console.log(`Padalinus didesnį skaičių iš mažesnio gauname:`, division.toFixed(2));
+        }
+
+        //Naudokite funkciją ir sukurkite tris kintamuosius kuriems priskirkite atsitiktines reikšmes nuo 0 iki 25. 
+        //Raskite ir atspausdinkite vidurinę reikšmę.
+
+        console.log(`Antra užduotis`);
+        rand1 = rand(0, 25);
+        console.log(rand1);
+        rand2 = rand(0, 25);
+        console.log(rand2);
+        let rand3 = rand(0, 25);
+        console.log(rand3);
+        let max = Math.max(rand1, rand2, rand3);
+        let min = Math.min(rand1, rand2, rand3);
+        if (rand1 < max && rand1 > min) {
+            console.log(`Vidurinis skaičius:`, rand1);
+        } else if (rand2 < max && rand2 > min) {
+            console.log(`Vidurinis skaičius:`, rand2);
+        } else if (rand3 < max && rand3 > min) {
+            console.log(`Vidurinis skaičius:`, rand3);
+        } else {
+            console.log(`Du ar trys skaičiai yra vienodi`)
+        }
+
+        //Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. 
+        //Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. 
+        //Jį atspausdinti.
+
+        console.log(`Trečia užduotis`);
+        let vardas = `Joe`;
+        console.log(vardas);
+        let pavarde = `Pesci`;
+        console.log(pavarde);
+        console.log(`Inicialai:`, vardas[0], pavarde[0]);
+
+        //Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
+
+        console.log(`Ketvirta užduotis`);
+        rand1 = rand(97, 122);
+        console.log(rand1);
+        rand2 = rand(97, 122);
+        console.log(rand2);
+        rand3 = rand(97, 122);
+        console.log(rand3);
+        console.log(`Sugeneruotos mažosios lotyniškos raidės:`, String.fromCharCode(rand1, rand2, rand3));
+
+
+
+
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+    </script>
+
+</body>
+
+</html>
