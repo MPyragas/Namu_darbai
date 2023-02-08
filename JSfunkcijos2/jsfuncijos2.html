@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsfunkcijos2</title>
+</head>
+
+<body>
+    <script>
+        // Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija, kur 0 yra herbas, o 1 - skaičius. 
+        // Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas. 
+        // Suprogramuokite keturis skirtingus scenarijus kai monetos metimą stabdome:
+        // Iškritus herbui;
+        // Tris kartus iškritus herbui;
+        // Tris kartus iš eilės iškritus herbui;
+
+        document.write('<h2>Pirmoji užduotis: 02.03</h2>');
+        document.write(`<p>Iškritus herbui:`);
+        let number = rand(0, 1);
+        if (number) {
+            document.write(`S`);
+            while (number) {
+                number = rand(0, 1);
+                if (number) {
+                    document.write(`S`);
+                } else {
+                    document.write(`H`);
+                };
+            };
+        } else {
+            document.write(`H`);
+        }
+        document.write(`</p>`);
+
+        document.write(`<p>Tris kartus iškritus herbui:`);
+        let headCounter = 0;
+        while (headCounter < 3) {
+            let number = rand(0, 1);
+            if (number) {
+                document.write(`S`);
+            } else {
+                document.write(`H`);
+                headCounter++;
+            }
+        }
+        document.write(`</p>`);
+
+        document.write(`<p>Tris kartus iš eilės iškritus herbui:`);
+        let string = "";
+        while (!string.includes("HHH")) {
+            let number = rand(0, 1);
+            if (number) {
+                document.write(`S`);
+                string += "S";
+            } else {
+                document.write(`H`);
+                string += "H";
+            }
+        }
+        document.write(`</p>`);
+
+        // Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, Kazys surenka taškų kiekį nuo 5 iki 25.
+        // Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: ​laimėtojo vardas​”. 
+        // Taškų kiekį generuokite funkcija ​rand()​. Žaidimą laimi tas, kas greičiau surenka 222 taškus. 
+        // Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
+
+        document.write('<h2>Antroji užduotis: 02.03</h2>');
+
+        let pointsKazys = 0;
+        let pointsPetras = 0;
+        let laimetojoStr = "";
+        while (pointsKazys < 222 || pointsPetras < 222) {
+            pointsKazys += rand(5, 25);
+            pointsPetras += rand(10, 20);
+        }
+        if (pointsKazys > pointsPetras) {
+            laimetojoStr = "Kazys";
+        } else if (pointsPetras > pointsKazys) {
+            laimetojoStr = "Petras";
+        }
+
+        document.write(`Kazys: ${pointsKazys}, Petras: ${pointsPetras}. Partiją laimėjo: ${laimetojoStr}`);
+
+
+
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script>
+</body>
+
+</html>
