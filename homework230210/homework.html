@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namų darbai 2023-02-10</title>
+</head>
+
+<body>
+    <script>
+
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
+
+        let masyvas = [];
+        for (let i = 0; i < 30; i++) {
+            masyvas.push(rand(0, 25));
+        }
+
+        console.log(masyvas);
+
+        document.write('<h4>Pirmoji užduotis</h4>');
+
+        // Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+
+        let counter = 0;
+        for (let element of masyvas) {
+            if (element > 10)
+                counter++;
+        }
+
+        document.write('Reikšmių didesnių už 10 yra: ' + counter);
+
+        document.write('<h4>Antroji užduotis</h4>');
+
+        // Raskite didžiausią masyvo reikšmę ir jos indeksą arba indeksus jeigu yra keli;
+
+        let max = 0;
+
+        for (let element of masyvas) {
+            if (element > max)
+                max = element;
+        }
+
+        document.write('Didžiausia reikšmė: ' + max);
+
+        let indeksai = [];
+        for (let indeksas in masyvas) {
+            if (masyvas[indeksas] === max)
+                indeksai.push(indeksas);
+        }
+
+        document.write(`<div>Didžiausios reikšmės indeksas (-ai): ${indeksai}</div>`);
+
+    </script>
+</body>
+
+</html>

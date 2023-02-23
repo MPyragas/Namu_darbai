@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šuniukai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="container pt-3">
+        <h2 class="text-center">Find dog images by breed</h2>
+        <section>
+            <form action="#" onsubmit="getimg(event)">
+                <label for="breed">Dog breed</label>
+                <input id="breed" required type="text">
+                <p id="nerasta"></p>
+                <button>Find</button>
+            </form>
+            <img id="breed-img" src="" alt="">
+        </section>
+        <section>
+            <h2 class="text-center">Your breed picture gallery:</h2>
+            <div id="gallery" class="d-flex flex-wrap mx-auto justify-content-center align-items-stretch"></div>
+        </section>
+    </main>
+
+    <script>
+        const breedDom = document.getElementById('breed');
+        const nerastaDom = document.getElementById('nerasta');
+        const imgDom = document.getElementById('breed-img');
+        const galleryDom = document.getElementById('gallery');
+        function getimg(e) {
+            e.preventDefault();
+            gallery.innerHTML = '';
+            nerastaDom.textContent = '';
+            let breed = breedDom.value.trim();
+            if (!breed) {
+                e.target.reset();
+                return;
+            };
+            fetch(`https://dog.ceo/api/breed/${breed}/images/random`).then((response) => {
+                return response.json();
+            }).then((data) => {
+                if (data.code === 404) {
+                    nerastaDom.textContent = 'Nuotrauka nerasta';
+                    return;
+                }
+                imgDom.src = data.message;
+                fetch(`https://dog.ceo/api/breed/${breed}/images`).then((response) => {
+                    return response.json();
+                }).then((data) => {
+                    if (data.status === 'success') {
+                        data.message.forEach((url) => {
+                            gallery.innerHTML += `<img class="w-25 m-2" src=${url} alt=''/>`;
+                        });
+                    };
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
