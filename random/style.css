@@ -1,0 +1,128 @@
+.frame {
+    max-width: 730px;
+    margin: auto;
+    overflow: hidden;
+}
+.card {
+    position: relative;
+    padding: 20px 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5);
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+}
+.card::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    top: 0;
+    background: #f9f9f9;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    z-index: -1;
+}
+.user-photo {
+    position: relative;
+    background: #fff;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,.25);
+}
+.user-photo img {
+    width: 150px;
+    border-radius: 50%;
+}
+.centrify {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.refresh {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    padding: 10px 15px;
+    color: #fff;
+    background: rgba(0,0,0,.75);
+    border-radius: 3px;
+    text-decoration: none;
+    opacity: 0;
+    display: block;
+    transform: translateX(-50%);
+    transition: all .25s ease-out;
+}
+.user-photo:hover a {
+    bottom: -10px;
+    opacity: 1;
+}
+#user-title {
+    color: #999;
+    font-size: 18px;
+    margin: 0;
+}
+#user-value {
+    color: #2c2e31;
+    font-size: 38px;
+    margin: 5px;
+}
+.values-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: left;
+}
+.values-list li {
+    cursor: pointer;
+    display: block;
+    width: 40px;
+    height: 48px;
+    float: left;
+    margin: 20px;
+    background-image: url(./img/card_icons.png);
+    background-size: 378px;
+    transition: all .25s ease-out;
+}
+.values-list li.active[data-label="name"] {
+    background-position: 0 -96px;
+}
+.values-list li.active[data-label="email"] {
+    background-position: -68px -96px;
+}
+.values-list li.active[data-label="birthday"] {
+    background-position: -135px -96px;
+}
+.values-list li.active[data-label="address"] {
+    background-position: -203px -96px;
+}
+.values-list li.active[data-label="phone"] {
+    background-position: -270px -96px;
+}
+.values-list li.active[data-label="pass"] {
+    background-position: -338px -96px;
+}
+.values-list li[data-label="name"] {
+    background-position: 0 -48px;
+}
+.values-list li[data-label="email"] {
+    background-position: -68px -48px;
+}
+.values-list li[data-label="birthday"] {
+    background-position: -135px -48px;
+}
+.values-list li[data-label="address"] {
+    background-position: -203px -48px;
+}
+.values-list li[data-label="phone"] {
+    background-position: -270px -48px;
+}
+.values-list li[data-label="pass"] {
+    background-position: -338px -48px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random contacts</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="frame">
+        <div class="card">
+            <div class="details">
+                <div id="user-photo" class="user-photo centrify">
+                    <img src="" alt="">
+                    <a class="refresh" href="javascript: naujasZmogus();">New</a>
+                </div>
+                <p id="user-title"></p>
+                <p id="user-value"></p>
+            </div>
+            <ul id="values-list" class="values-list centrify">
+                <li class="" data-title="Hi, My name is" data-value="" data-label="name"></li>
+                <li class="" data-title="My email address is" data-value="" data-label="email"></li>
+                <li class="" data-title="My birthday is" data-value="" data-label="birthday"></li>
+                <li class="" data-title="My address is" data-value="" data-label="address"></li>
+                <li class="" data-title="My phone number is" data-value="" data-label="phone"></li>
+                <li class="" data-title="My password is" data-value="" data-label="pass"></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        function naujasZmogus() {
+            fetch('https://randomuser.me/api/')
+                .then(resp => resp.json())
+                .then(resp => {
+                    const person = resp.results[0];
+                    //console.log(person);
+                    document.querySelector('.user-photo img').src = person.picture.large;
+                    document.querySelector('#user-title').textContent = 'Hi, My name is';
+                    document.querySelector('#user-value').textContent = person.name.first + ' ' + person.name.last;
+
+                    document.querySelector('li:nth-child(1)').dataset.value = person.name.first + ' ' + person.name.last;
+                    document.querySelector('li:nth-child(2)').dataset.value = person.email;
+                    document.querySelector('li:nth-child(3)').dataset.value = person.dob.date.split('T')[0];
+                    document.querySelector('li:nth-child(4)').dataset.value = person.location.street.number + ' ' + person.location.street.name;
+                    document.querySelector('li:nth-child(5)').dataset.value = person.cell;
+                    document.querySelector('li:nth-child(6)').dataset.value = person.login.password;
+                });
+        }
+
+        function keistiTeksta(e) {
+            document.querySelectorAll('.values-list li').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            e.target.classList.add('active');
+
+            document.querySelector('#user-value').textContent = e.target.dataset.value;
+            document.querySelector('#user-title').textContent = e.target.dataset.title;
+        }
+
+        document.querySelectorAll('.values-list li').forEach(el => {
+            el.addEventListener('mouseenter', keistiTeksta);
+        });
+
+        naujasZmogus();
+    </script>
+</body>
+
+</html>
